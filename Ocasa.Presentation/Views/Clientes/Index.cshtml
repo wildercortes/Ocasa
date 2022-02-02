@@ -1,0 +1,40 @@
+﻿@model IEnumerable<Ocasa.Presentation.ViewModels.ClienteVM>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Lista de Clientes</h2>
+
+<p>
+    <a class="btn btn-primary" asp-action="Create">Crear Cliente</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.RazonSocial)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Direccion)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RazonSocial)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Direccion)
+                </td>
+                <td>
+                    <a class="btn btn-info" asp-action="Edit" asp-route-id="@item.IdCliente">Editar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

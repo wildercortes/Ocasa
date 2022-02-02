@@ -1,8 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Text;
+using Ocasa.Entities;
 
 namespace Ocasa.Presentation.Data
 {
@@ -12,5 +10,6 @@ namespace Ocasa.Presentation.Data
             : base(options)
         {
         }
+        public DbSet<Cliente> Clientes { get; set; }
     }
 }

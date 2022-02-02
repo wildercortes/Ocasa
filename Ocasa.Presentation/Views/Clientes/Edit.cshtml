@@ -1,0 +1,49 @@
+﻿@model Ocasa.Presentation.ViewModels.ClienteVM
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2>Editar Clientes</h2>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="IdCliente" />
+            <div class="form-group">
+                <label asp-for="RazonSocial" class="control-label"></label>
+                <input asp-for="RazonSocial" class="form-control" />
+                <span asp-validation-for="RazonSocial" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Direccion" class="control-label"></label>
+                <input asp-for="Direccion" class="form-control" />
+                <span asp-validation-for="Direccion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+                <input type="button" name="name" value="Validar IdCliente" onclick="GetIdClient()" class="btn btn-info" />
+                <a class="btn btn-danger " asp-action="Index">Regresar</a>
+            </div>
+        </form>
+
+        <input type="hidden" asp-for="IdCliente" class="hide" id="IdCliente" />
+    </div>
+</div>
+
+
+<script>
+    function GetIdClient() {
+        var IdCliente = document.getElementById("IdCliente");
+
+        if (IdCliente >= 10 && IdCliente <= 100) {
+            alert("el IdCliente se encuentra entre 10 y 100");
+        }
+        else {
+            alert("el IdCliente no se encuentra entre 10 y 100");
+        }
+    }
+
+</script>
+
